@@ -1,0 +1,20 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+
+div {
+    color: aliceblue;
+}
+
+button {
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); */
+}
+button:hover {
+    background-color: #f8f8f815;
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electron App</title>
+    <link rel="stylesheet" href="output.css">
+</head>
+
+<body class="bg-gray-900">
+
+    <div class="h-screen flex items-center justify-center p-4">
+
+        <div class="w-full h-full bg-gray-800 rounded-2xl p-4 border border-gray-700 flex flex-col">
+            <!-- Topbar Area -->
+            <div class="h-16 bg-gray-700 rounded-lg mb-4 flex items-center justify-between px-4">
+                <!-- Left-aligned Buttons -->
+                <div class="flex items-center justify-between flex-1 max-w-[50%]">
+                    <button id="homeButton"     class="px-4 py-2 border-2 border-gray-500 rounded-md">Home</button>
+                    <button id="versionsButton" class="px-4 py-2 border-2 border-gray-500 rounded-md">Versions</button>
+                    <button id="modsButton"     class="px-4 py-2 border-2 border-gray-500 rounded-md">Mods / Resource Packs</button>
+                    <button id="settingsButton" class="px-4 py-2 border-2 border-gray-500 rounded-md">Settings</button>
+                </div>
+        
+                <!-- Right-aligned Button -->
+                <div>
+                    <button class="px-4 py-2 border-2 border-gray-500 rounded-md">Exit</button>
+                </div>
+            </div>
+        
+            <!-- Content Area -->
+            <div class="flex flex-1 gap-4">
+                <!-- Sidebar -->
+                <div class="w-1/5 bg-gray-700 rounded-lg p-4">
+                    <h1 class="text-2xl font-bold text-white">Version List</h1>
+                    <ul class="mt-4">
+                        <li class="py-2 border-b border-gray-600"><a href="#" class="text-white">1.21.1</a></li>
+                        <li class="py-2 border-b border-gray-600"><a href="#" class="text-white">1.20.4</a></li>
+                        <li class="py-2 border-b border-gray-600"><a href="#" class="text-white">1.12.2</a></li>
+                        <li class="py-2 border-b border-gray-600"><a href="#" class="text-white">1.8.9</a></li>
+                        <li class="py-2 border-b border-gray-600"><a href="#" class="text-white">1.7.10</a></li>
+                    </ul>
+                </div>
+        
+                <!-- Main Content -->
+                <div id="mainContent" class="flex-1 bg-gray-700 rounded-lg p-4 flex flex-col items-center gap-4">
+                    <h1 class="text-2xl font-bold text-white">Welcome to the Minecraft Launcher</h1>
+                    <div class="flex flex-col items-center gap-2">
+                        <button type="button"
+                            class="w-80 px-4 py-2 bg-gray-800 border-2 border-gray-500 rounded-md">Play</button>
+                        <h1 class="font-semibold text-gray-300">Selected Version 1.21.1 With Account Embrassadas</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    document.getElementById('homeButton').addEventListener('click', () => window.electronAPI.loadPage('home.html'));
+    document.getElementById('versionsButton').addEventListener('click', () => window.electronAPI.loadPage('versions.html'));
+    document.getElementById('modsButton').addEventListener('click', () => window.electronAPI.loadPage('mods.html'));
+    document.getElementById('settingsButton').addEventListener('click', () => window.electronAPI.loadPage('settings.html'));
+
+    window.electronAPI.onPageContent((content) => {
+        document.getElementById('mainContent').innerHTML = content;
+    });
+</script>
+
+</html>

@@ -1,0 +1,70 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electron App</title>
+    <link rel="stylesheet" href="output.css">
+</head>
+
+<div id="mainContent" class="bg-gray-700 rounded-lg flex flex-col items-center gap-4 w-full">
+
+    <div class="w-full space-y-8">
+        <!-- Default Instance Settings -->
+        <h2 class="text-center text-lg font-semibold mb-4">DEFAULT INSTANCES SETTINGS</h2>
+
+        <div>
+            
+            <h2 class="text-center text-gray-300 text-lg font-semibold mb-4 border-b border-gray-600">WINDOW SETTINGS</h2>
+
+            <div class="flex mb-2">
+                <label for="hs-default-checkbox" class="text-gray-400 text-lg font-semibold mr-2">Fullscreen Mode</label>
+                <input type="checkbox" class="h-4 w-4 rounded-md shrink-0 mt-1.5 border-gray-600 text-gray-400">
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+                <div class="flex flex-col">
+                    <label for="width" class="text-gray-400 mb-1">Width</label>
+                    <input id="width" type="text" value="1920"
+                        class="bg-gray-800 text-gray-200 text-sm px-3 py-2 rounded-md border border-gray-700 focus:outline-none focus:ring focus:ring-gray-600" />
+                </div>
+                <div class="flex flex-col">
+                    <label for="height" class="text-gray-400 mb-1">Height</label>
+                    <input id="height" type="text" value="1080"
+                        class="bg-gray-800 text-gray-200 text-sm px-3 py-2 rounded-md border border-gray-700 focus:outline-none focus:ring focus:ring-gray-600" />
+                </div>
+            </div>
+        </div>
+
+        <!-- Advanced Settings -->
+        <div>
+            <h2 class="text-center text-gray-300 text-lg font-semibold mb-4 border-b border-gray-600">ADVANCED SETTINGS</h2>
+            <div class="space-y-4">
+                <div>
+                    <label for="java-arguments" class="text-gray-400 mb-1 block">Java Arguments</label>
+                    <input id="java-arguments" type="text" placeholder="e.g. java -Xms10G -Xmx10G -XX:+UseG1GC"
+                        class="w-full bg-gray-800 text-gray-200 text-sm px-3 py-2 rounded-md border border-gray-700 focus:outline-none focus:ring focus:ring-gray-600" />
+                </div>
+                <div>
+                    <label for="environmental-arguments" class="text-gray-400 mb-1 block">Environmental Arguments</label>
+                    <input id="environmental-arguments" type="text" placeholder="e.g. java $JAVA_OPTS -jar /my.jar"
+                        class="w-full bg-gray-800 text-gray-200 text-sm px-3 py-2 rounded-md border border-gray-700 focus:outline-none focus:ring focus:ring-gray-600" />
+                </div>
+            </div>
+        </div>
+
+        <!-- Style Settings -->
+        <div>
+            <h2 class="text-center text-gray-300 text-lg font-semibold mb-4 border-b border-gray-600">STYLE SETTINGS</h2>
+            <div>
+                <label for="select-style" class="text-gray-400 mb-1 block">Select style</label>
+                <select
+                    class="p-2 pe-9 w-full rounded-md text-sm bg-gray-800 text-gray-200 border border-gray-700 focus:outline-none focus:ring focus:ring-gray-600">
+                    <option selected="">Blue Mode</option>
+                    <option>Purple Mode</option>
+                    <option>Red Mode</option>
+                    <option>Dark Mode</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+</div>
