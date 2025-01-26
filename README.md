@@ -1,4 +1,4 @@
-# My Electron App
+# Electron Minecraft Launcher
 
 An attempt at making a minecraft launcher using electronjs and tailwincss 
 
