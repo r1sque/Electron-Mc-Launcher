@@ -14,10 +14,12 @@ function createWindow() {
     },
   });
 
-  mainWindow.loadFile("src/index.html");
+  mainWindow.loadFile("public/index.html");
+
+  const appRoot = path.resolve(__dirname, "..");
 
   ipcMain.on("load-page", (event, page) => {
-    const filePath = path.join(__dirname, "src/oth", page);
+    const filePath = path.join(appRoot, "public", page);
     fs.readFile(filePath, "utf-8", (err, data) => {
       if (err) {
         console.error("Failed to read file:", err);

@@ -1,1 +1,56 @@
 An attempt at making a minecraft launcher using electronjs and tailwincss 
+# My Electron App
+
+This is a simple Electron application built with TypeScript. It serves as a template for creating cross-platform desktop applications using web technologies.
+
+## Project Structure
+
+```
+Electron-Mc-Launcher
+├── public
+│   ├── index.html          # Entry point HTML for the Electron app.
+│   ├── home.html           # HTML for the main launcher interface.
+│   ├── versions.html       # HTML for displaying available Minecraft versions.
+│   ├── misc.html           # HTML for additional launcher functionalities.
+│   ├── settings.html       # HTML for user settings and preferences.
+│   ├── input.css           # Tailwind CSS source file (custom styles).
+│   └── output.css          # Compiled CSS file for styling the app.
+├── src
+|   ├── main.js             # Main process script for starting the Electron application.
+|   ├── renderer.js         # Script for managing the renderer process and handling UI interactions.
+│   └── preload.js          # Preload script to safely expose APIs to the renderer process.
+|
+├── package.json            # npm configuration file containing dependencies and scripts.
+├── tailwind.config.js      # Tailwind CSS configuration file for customizations.
+└── README.md               # Project documentation, including setup instructions and features.
+```
+
+## Getting Started
+
+1. Clone the repository:
+   ```
+   git clone https://github.com/r1sque/Electron-Mc-Launcher.git
+   ```
+
+2. Navigate to the project directory:
+   ```
+   cd Electron-Mc-Launcher
+   ```
+
+3. Install the dependencies:
+   ```
+   npm install electron --save-dev
+   -----------------------------------------
+   npm install tailwindcss @tailwindcss/cli
+   
+   Follow the tutorial at on how to set them up : 
+   https://www.electronjs.org/docs/latest/tutorial/tutorial-first-app
+   https://tailwindcss.com/docs/installation/tailwind-cli
+   ```
+
+4. Run the application:
+   ```
+   npm run build:css
+   -----------------------------------------
+   npx electron .
+   ```
