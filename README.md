@@ -27,7 +27,7 @@ Electron-Mc-Launcher
 ## ToDo:
 
 - [x] Main UI
--   [ ] Improve UI design (small sizing)
+    - [ ] Improve UI design (small sizing)
 - [x] Dynamic Main Content UI
 - [x] Project readability
 - [ ] Add Minecraft Launcher Logic
