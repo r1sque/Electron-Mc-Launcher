@@ -52,8 +52,8 @@ Electron-Mc-Launcher
    ```
    
    Follow the tutorial at on how to set them up : 
-   https://www.electronjs.org/docs/latest/tutorial/tutorial-first-app
-   https://tailwindcss.com/docs/installation/tailwind-cli
+   - https://www.electronjs.org/docs/latest/tutorial/tutorial-first-app
+   - https://tailwindcss.com/docs/installation/tailwind-cli
 
 4. Run the application:
    ```
