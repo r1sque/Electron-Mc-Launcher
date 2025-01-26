@@ -59,5 +59,5 @@ Electron-Mc-Launcher
 4. Run the application:
    ```
    npm run build:css
-   npx electron .
+   npm run start
    ```
