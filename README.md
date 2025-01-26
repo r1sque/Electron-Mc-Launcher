@@ -1,7 +1,6 @@
-An attempt at making a minecraft launcher using electronjs and tailwincss 
 # My Electron App
 
-This is a simple Electron application built with TypeScript. It serves as a template for creating cross-platform desktop applications using web technologies.
+An attempt at making a minecraft launcher using electronjs and tailwincss 
 
 ## Project Structure
 
@@ -24,6 +23,15 @@ Electron-Mc-Launcher
 ├── tailwind.config.js      # Tailwind CSS configuration file for customizations.
 └── README.md               # Project documentation, including setup instructions and features.
 ```
+
+## ToDo:
+
+- [x] Main UI
+-   [ ] Improve UI design (small sizing)
+- [x] Dynamic Main Content UI
+- [x] Project readability
+- [ ] Add Minecraft Launcher Logic
+- [ ] Portable App
 
 ## Getting Started
 
