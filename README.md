@@ -48,17 +48,15 @@ Electron-Mc-Launcher
 3. Install the dependencies:
    ```
    npm install electron --save-dev
-   -----------------------------------------
    npm install tailwindcss @tailwindcss/cli
+   ```
    
    Follow the tutorial at on how to set them up : 
    https://www.electronjs.org/docs/latest/tutorial/tutorial-first-app
    https://tailwindcss.com/docs/installation/tailwind-cli
-   ```
 
 4. Run the application:
    ```
    npm run build:css
-   -----------------------------------------
    npx electron .
    ```
