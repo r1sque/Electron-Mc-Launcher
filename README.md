@@ -8,12 +8,13 @@ An attempt at making a minecraft launcher using electronjs and tailwincss
 Electron-Mc-Launcher
 ├── public
 │   ├── index.html          # Entry point HTML for the Electron app.
-│   ├── home.html           # HTML for the main launcher interface.
-│   ├── versions.html       # HTML for displaying available Minecraft versions.
-│   ├── misc.html           # HTML for additional launcher functionalities.
-│   ├── settings.html       # HTML for user settings and preferences.
 │   ├── input.css           # Tailwind CSS source file (custom styles).
-│   └── output.css          # Compiled CSS file for styling the app.
+│   ├── output.css          # Compiled CSS file for styling the app.
+|   └── others
+│       ├── home.html           # HTML for the main launcher interface.
+│       ├── versions.html       # HTML for displaying available Minecraft versions.
+│       ├── misc.html           # HTML for additional launcher functionalities.
+│       └── settings.html       # HTML for user settings and preferences.
 ├── src
 |   ├── main.js             # Main process script for starting the Electron application.
 |   ├── renderer.js         # Script for managing the renderer process and handling UI interactions.

@@ -19,7 +19,7 @@ function createWindow() {
   const appRoot = path.resolve(__dirname, "..");
 
   ipcMain.on("load-page", (event, page) => {
-    const filePath = path.join(appRoot, "public", page);
+    const filePath = path.join(appRoot, "public/others", page);
     fs.readFile(filePath, "utf-8", (err, data) => {
       if (err) {
         console.error("Failed to read file:", err);
