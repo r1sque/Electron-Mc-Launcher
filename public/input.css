@@ -8,7 +8,8 @@ body {
 
 div {
   color: aliceblue;
-  
+  user-select: none;
+
   ::-webkit-scrollbar {
     width: 10px;
   }
