@@ -5,9 +5,9 @@
     <link rel="stylesheet" href="../output.css">
 </head>
 
-<div id="mainContent" class="bg-gray-700 rounded-lg flex flex-col items-center gap-4 w-full">
+<div id="mainContent" class="bg-gray-700 rounded-lg flex flex-col items-center gap-4 w-full h-full">
 
-    <div class="w-full space-y-8">
+    <div class="w-full h-full space-y-8 overflow-y-auto pr-2">
         <!-- Default Instance Settings -->
         <h2 class="text-center text-lg font-semibold mb-4">DEFAULT INSTANCES SETTINGS</h2>
 
@@ -15,9 +15,30 @@
             
             <h2 class="text-center text-gray-300 text-lg font-semibold mb-4 border-b border-gray-600">WINDOW SETTINGS</h2>
 
-            <div class="flex mb-2">
-                <label for="hs-default-checkbox" class="text-gray-400 text-lg font-semibold mr-2">Fullscreen Mode</label>
-                <input type="checkbox" class="h-4 w-4 rounded-md shrink-0 mt-1.5 border-gray-600 text-gray-400">
+            <div class="inline-flex items-start py-2 mb-2">
+                <label class="flex items-start cursor-pointer relative">
+                    <input type="checkbox"
+                        class="peer h-5 w-5 cursor-pointer transition-all appearance-none rounded shadow hover:shadow-md border border-slate-300 checked:bg-gray-800 checked:border-gray-800" />
+                    <span
+                        class="absolute text-white opacity-0 peer-checked:opacity-100 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor"
+                            stroke="currentColor" stroke-width="1">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z">
+                            </path>
+                        </svg>
+                    </span>
+                </label>
+                <label class="cursor-pointer ml-2 text-slate-600 text-sm translate-y-[-4px]">
+                    <div>
+                        <p class="text-gray-300 text-lg">
+                            Fullscreen Mode
+                        </p>
+                        <p class="text-slate-400">
+                            This will launch your game in Fullscreen.
+                        </p>
+                    </div>
+                </label>
             </div>
 
             <div class="grid grid-cols-2 gap-4">
@@ -63,6 +84,36 @@
                     <option>Red Mode</option>
                     <option>Dark Mode</option>
                 </select>
+            </div>
+        </div>
+
+        <!-- App Settings -->
+        <div>
+            <h2 class="text-center text-gray-300 text-lg font-semibold mb-4 border-b border-gray-600">APP SETTINGS</h2>
+
+            <div class="inline-flex items-start">
+                <label class="flex items-start cursor-pointer relative">
+                    <input type="checkbox" checked
+                        class="peer h-5 w-5 cursor-pointer transition-all appearance-none rounded shadow hover:shadow-md border border-slate-300 checked:bg-gray-800 checked:border-gray-800" />
+                    <span class="absolute text-white opacity-0 peer-checked:opacity-100 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor"
+                            stroke="currentColor" stroke-width="1">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z">
+                            </path>
+                        </svg>
+                    </span>
+                </label>
+                <label class="cursor-pointer ml-2 text-slate-600 text-sm translate-y-[-4px]">
+                    <div>
+                        <p class="text-gray-300 text-lg">
+                            Check for Updates on Startup
+                        </p>
+                        <p class="text-slate-400">
+                                Automatically Checks for Updates on App Startup.
+                        </p>
+                    </div>
+                </label>
             </div>
         </div>
     </div>

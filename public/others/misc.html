@@ -5,11 +5,11 @@
     <link rel="stylesheet" href="../output.css">
 </head>
 
-<div id="mainContent" class="bg-gray-700 rounded-lg flex flex-col items-center gap-4 w-full">
+<div id="mainContent" class="bg-gray-700 rounded-lg flex flex-col items-center gap-4 w-full h-full">
 
-    <div class="w-full space-y-4">
+    <div class="flex flex-col h-full w-full space-y-4">
     <!-- Mods Section -->
-        <div>
+        <div class="h-[calc(50%-0.5rem)] flex flex-col">
             <h2 class="text-center text-gray-300 text-lg font-semibold mb-4">MODS</h2>
             <div class="grid grid-cols-3 text-gray-400 text-sm border-b border-gray-600 pb-2">
                 <span>Name</span>
@@ -17,7 +17,7 @@
                 <span class="text-right">Status</span>
             </div>
             <!-- Rows -->
-            <div class="space-y-2 mt-2">
+            <div class="space-y-2 mt-2 overflow-y-auto pr-2">
                 <div class="grid grid-cols-3 items-center bg-gray-800 p-2 rounded-md border border-gray-700">
                     <span class="text-gray-300">Fabric API</span>
                     <span class="text-center text-gray-400">1.21.1</span>
@@ -25,6 +25,7 @@
                         Enabled
                     </button>
                 </div>
+
                 <div class="grid grid-cols-3 items-center bg-gray-800 p-2 rounded-md border border-gray-700">
                     <span class="text-gray-300">Sodium</span>
                     <span class="text-center text-gray-400">1.21.1</span>
@@ -32,6 +33,7 @@
                         Enabled
                     </button>
                 </div>
+
                 <div class="grid grid-cols-3 items-center bg-gray-800 p-2 rounded-md border border-gray-700">
                     <span class="text-gray-300">Sodium Extra</span>
                     <span class="text-center text-gray-400">1.21.1</span>
@@ -43,7 +45,7 @@
         </div>
 
         <!-- Resource Packs Section -->
-        <div>
+        <div class="h-[calc(50%-0.5rem)] flex flex-col">
             <h2 class="text-center text-gray-300 text-lg font-semibold mb-4">RESSOURCES PACKS</h2>
             <div class="grid grid-cols-3 text-gray-400 text-sm border-b border-gray-600 pb-2">
                 <span>Name</span>
@@ -51,7 +53,7 @@
                 <span class="text-right">Status</span>
             </div>
             <!-- Rows -->
-            <div class="space-y-2 mt-2">
+            <div class="space-y-2 mt-2 overflow-y-auto pr-2">
                 <div class="grid grid-cols-3 items-center bg-gray-800 p-2 rounded-md border border-gray-700">
                     <span class="text-gray-300">Faithful 64x</span>
                     <span class="text-center text-gray-400">1.21.1</span>
@@ -59,6 +61,7 @@
                         Enabled
                     </button>
                 </div>
+
                 <div class="grid grid-cols-3 items-center bg-gray-800 p-2 rounded-md border border-gray-700">
                     <span class="text-gray-300">Dark Mode GUI Revision</span>
                     <span class="text-center text-gray-400">1.21.1</span>
@@ -66,6 +69,7 @@
                         Enabled
                     </button>
                 </div>
+                
                 <div class="grid grid-cols-3 items-center bg-gray-800 p-2 rounded-md border border-gray-700">
                     <span class="text-gray-300">Glowing</span>
                     <span class="text-center text-gray-400">1.21.1</span>
