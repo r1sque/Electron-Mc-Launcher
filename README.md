@@ -31,7 +31,7 @@ Electron-Mc-Launcher
     - [x] Improve UI design (small sizing)
     - [ ] Improve UI design Overhaul
 - [x] Dynamic Main Content UI
-   - [ ] fix output.css not dynamically loading (renderer.js issue)
+- [ ] fix output.css not dynamically loading (renderer.js issue)
 - [x] Project readability
 - [ ] Add Minecraft Launcher Logic
 - [ ] Portable App
