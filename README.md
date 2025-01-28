@@ -7,22 +7,22 @@ An attempt at making a minecraft launcher using electronjs and tailwincss
 ```
 Electron-Mc-Launcher
 ├── public
-│   ├── index.html          # Entry point HTML for the Electron app.
-│   ├── input.css           # Tailwind CSS source file (custom styles).
-│   ├── output.css          # Compiled CSS file for styling the app.
+│   ├── index.html              # Entry point HTML for the Electron app.
+│   ├── input.css               # Tailwind CSS source file (custom styles).
+│   ├── output.css              # Compiled CSS file for styling the app.
 |   └── others
 │       ├── home.html           # HTML for the main launcher interface.
 │       ├── versions.html       # HTML for displaying available Minecraft versions.
 │       ├── misc.html           # HTML for additional launcher functionalities.
 │       └── settings.html       # HTML for user settings and preferences.
 ├── src
-|   ├── main.js             # Main process script for starting the Electron application.
-|   ├── renderer.js         # Script for managing the renderer process and handling UI interactions.
-│   └── preload.js          # Preload script to safely expose APIs to the renderer process.
+|   ├── main.js                 # Main process script for starting the Electron application.
+|   ├── renderer.js             # Script for managing the renderer process and handling UI interactions.
+│   └── preload.js              # Preload script to safely expose APIs to the renderer process.
 |
-├── package.json            # npm configuration file containing dependencies and scripts.
-├── tailwind.config.js      # Tailwind CSS configuration file for customizations.
-└── README.md               # Project documentation, including setup instructions and features.
+├── package.json                # npm configuration file containing dependencies and scripts.
+├── tailwind.config.js          # Tailwind CSS configuration file for customizations.
+└── README.md                   # Project documentation, including setup instructions and features.
 ```
 
 ## ToDo:
