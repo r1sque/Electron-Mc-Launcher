@@ -35,7 +35,6 @@ Electron-Mc-Launcher
 - [ ] fix output.css not dynamically loading (renderer.js issue)
 - [x] Project readability
 - [ ] Add Minecraft Launcher Logic
-- [ ] Portable App
 
 ## Getting Started
 
