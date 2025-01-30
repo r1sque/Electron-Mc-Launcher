@@ -8,12 +8,13 @@
     <link rel="stylesheet" href="output.css">
 </head>
 
-<body class="bg-gray-900">
+<body class="bg-gray-900 overflow-y-hidden">
 
     <div class="h-screen flex-col p-4">
 
         <!-- Topbar Area -->
         <div class="h-16 bg-gray-700 rounded-lg mb-4 flex items-center justify-between px-4">
+
             <!-- Left-aligned Buttons -->
             <div class="flex flex-1 items-center gap-8 max-w-[30%]">
                 <button id="homeButton"     class="px-4 py-2 border-2 border-gray-500 rounded-md">Home</button>
@@ -24,7 +25,9 @@
     
             <!-- Right-aligned Button -->
             <div class="flex items-center gap-4 hover:bg-gray-800 transition-colors duration-400 rounded-md py-2 px-3 cursor-pointer">
-                <img src="https://minotar.net/helm/fe02b95b8a084ef59558233480c6b954/512.png" alt="avatar"
+
+                <!-- https://mc-heads.net for the head avatar of the user -->
+                <img src="https://mc-heads.net/avatar/fe02b95b8a084ef59558233480c6b954" alt="avatar" 
                     class="inline-block relative object-cover object-center rounded-lg w-10 h-10" />
                 <div>
                     <h6 class="font-semibold">
@@ -39,6 +42,7 @@
     
         <!-- Content Area -->
         <div class="flex flex-1 gap-4 h-[calc(100%-5rem)]">
+            
             <!-- Sidebar -->
             <div class="w-1/5 h-full bg-gray-700 rounded-lg py-4 pl-4 pr-1">
                 <h1 class="text-2xl font-bold text-white">Version List</h1>
