@@ -59,7 +59,7 @@
             <div id="mainContent" class="flex-1 bg-gray-700 rounded-lg p-4 flex flex-col items-center gap-4">
                 <h1 class="text-2xl font-bold text-white">Welcome to the Minecraft Launcher</h1>
                 <div class="flex flex-col items-center gap-2">
-                    <button type="button"
+                    <button type="button" id="launch-button"
                         class="w-80 px-4 py-2 bg-gray-800 border-2 border-gray-500 rounded-md">Play</button>
                     <h1 class="font-semibold text-gray-300">Selected Version 1.21.1 With Account Embrassadas</h1>
                 </div>
@@ -69,5 +69,11 @@
 </body>
 
 <script src="../src/renderer.js"></script>
+<script>
+        // Use the exposed `electronAPI` to send the "launch-minecraft" event
+        document.getElementById("launch-button").addEventListener("click", () => {
+            window.electronAPI.send("launch-minecraft");
+        });
+</script>
 
 </html>
