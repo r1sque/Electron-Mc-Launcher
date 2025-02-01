@@ -1,3 +1,4 @@
+
 document
   .getElementById("homeButton")
   .addEventListener("click", () => window.electronAPI.loadPage("home.html"));
@@ -19,17 +20,17 @@ window.electronAPI.onPageContent((content) => {
   document.getElementById("mainContent").innerHTML = content;
 });
 
-
 // Use the exposed `electronAPI` to send the "launch-minecraft" event
 document.getElementById("launch-button").addEventListener("click", () => {
-  window.electronAPI.send("launch-minecraft");
+  const version = document.getElementById("version-select").value;
+  window.electronAPI.send("launch-minecraft", version); // Send the selected version
 });
 
 function filterList() {
   const input = document.getElementById("search").value.toLowerCase();
   const items = document.querySelectorAll(".version-item");
 
-  items.forEach(item => {
+  items.forEach((item) => {
     const version = item.getAttribute("data-version");
     if (version.includes(input)) {
       item.style.display = "";

@@ -37,7 +37,7 @@ function createWindow() {
 }
 
 // Launch Minecraft
-async function launchMinecraft() {
+async function launchMinecraft(version) {
   const launcher = new Client();
   const authManager = new Auth("select_account");
 
@@ -52,7 +52,7 @@ async function launchMinecraft() {
       authorization: token.mclc(), // Convert msmc token to mclc format
       root: "./.minecraft", // Minecraft directory
       version: {
-        number: "1.21.4", // Minecraft version
+        number: version, // Use the selected version
         type: "release", // 'release', 'snapshot', or 'beta'
       },
       memory: {
@@ -62,7 +62,7 @@ async function launchMinecraft() {
       javaPath: "C:/Program Files/Java/jdk-21/bin/java.exe",
     };
 
-    console.log("Starting Minecraft...");
+    console.log(`Starting Minecraft ${version}...`);
     launcher.launch(opts);
 
     // Log Minecraft output
@@ -77,8 +77,8 @@ async function launchMinecraft() {
 }
 
 // Handle the "launch-minecraft" event from the renderer process
-ipcMain.on("launch-minecraft", () => {
-  launchMinecraft();
+ipcMain.on("launch-minecraft", (event, version) => {
+  launchMinecraft(version); // Pass the selected version
 });
 
 // Start the app
