@@ -6,7 +6,7 @@ node_modules/
 /build/
 /out/
 
-# Ignore temporary files
+/ Ignore temporary files
 *.log
 *.tmp
 *.temp
@@ -22,3 +22,7 @@ Thumbs.db
 
 # Ignore npm debug log
 npm-debug.log*
+
+# Ignore Minecraft Core and MSMC files
+.minecraft/
+msmc/
