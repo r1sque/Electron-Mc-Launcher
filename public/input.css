@@ -48,3 +48,14 @@ button:hover, li:hover {
   box-shadow: 0 0 4px rgba(219, 226, 255, 1), inset 0 0 4px rgba(219, 226, 255, 1);
 }
 
+.ver {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  margin: auto;
+  padding: 0.5rem 0.3rem;
+  border-radius: 6px;
+}
+
