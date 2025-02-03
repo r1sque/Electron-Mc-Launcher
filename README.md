@@ -10,11 +10,6 @@ Electron-Mc-Launcher
 │   ├── index.html              # Entry point HTML for the Electron app.
 │   ├── input.css               # Tailwind CSS source file (custom styles).
 │   ├── output.css              # Compiled CSS file for styling the app.
-|   └── others
-│       ├── home.html           # HTML for the main launcher interface.
-│       ├── versions.html       # HTML for displaying available Minecraft versions.
-│       ├── misc.html           # HTML for additional launcher functionalities.
-│       └── settings.html       # HTML for user settings and preferences.
 ├── src
 |   ├── main.js                 # Main process script for starting the Electron application.
 |   ├── renderer.js             # Script for managing the renderer process and handling UI interactions.
@@ -29,12 +24,16 @@ Electron-Mc-Launcher
 
 - [x] Main UI
    - [x] Improve UI design (small sizing)
-   - [ ] Improve UI design Overhaul
-   - [ ] Add Theme Selection
-- [x] Dynamic Main Content UI
-- [ ] fix output.css not dynamically loading (renderer.js issue)
+   - [ ] Overhaul UI design
+   - [ ] Add theme selection
+- [x] Dynamic main content UI
 - [x] Project readability
-- [ ] Add Minecraft Launcher Logic
+- [x] Add base Minecraft launcher logic
+   - [x] Add logging in via Microsoft API
+   - [x] Add version selector 
+   - [ ] Get versions dynamically using an API like [PrismarineJS/minecraft-data](https://github.com/PrismarineJS/minecraft-data)
+   - [ ] Create an account manager
+- [x] Frameless app
 
 ## Getting Started
 
@@ -50,16 +49,33 @@ Electron-Mc-Launcher
 
 3. Install the dependencies:
    ```
-   npm install electron --save-dev
-   npm install tailwindcss @tailwindcss/cli
+   npm i electron --save-dev
+   npm i tailwindcss @tailwindcss/cli
+   npm i minecraft-launcher-core msmc
    ```
    
    Follow the tutorial at on how to set them up : 
    - https://www.electronjs.org/docs/latest/tutorial/tutorial-first-app
    - https://tailwindcss.com/docs/installation/tailwind-cli
+   - https://github.com/Pierce01/MinecraftLauncher-core
 
 4. Run the application:
    ```
    npm run build:css
    npm run start
    ```
+
+## Building the Application
+
+To build the application for distribution:
+
+   ```
+   npm i electron-builder
+   ```
+and run:
+   ```
+   npm run build
+   ```
+
+This will create an executable file that can be run on your operating system.
+````
