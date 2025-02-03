@@ -19,7 +19,8 @@
       "target": [
         "portable",
         "nsis"
-      ]
+      ],
+      "icon": "build/favicon.ico"
     }
   },
   "devDependencies": {

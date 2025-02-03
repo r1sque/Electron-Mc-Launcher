@@ -3,7 +3,7 @@ node_modules/
 
 # Ignore Electron build output
 /dist/
-/build/
+# /build/
 /out/
 
 / Ignore temporary files
