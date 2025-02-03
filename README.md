@@ -34,6 +34,7 @@ Electron-Mc-Launcher
    - [ ] Get versions dynamically using an API like [PrismarineJS/minecraft-data](https://github.com/PrismarineJS/minecraft-data)
    - [ ] Create an account manager
 - [x] Frameless app
+- [ ] Bundle [adoptium](https://adoptium.net/) for game running java
 
 ## Getting Started
 
