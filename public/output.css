@@ -542,23 +542,8 @@
   .left-1\/2 {
     left: calc(1/2 * 100%);
   }
-  .container {
-    width: 100%;
-    @media (width >= 40rem) {
-      max-width: 40rem;
-    }
-    @media (width >= 48rem) {
-      max-width: 48rem;
-    }
-    @media (width >= 64rem) {
-      max-width: 64rem;
-    }
-    @media (width >= 80rem) {
-      max-width: 80rem;
-    }
-    @media (width >= 96rem) {
-      max-width: 96rem;
-    }
+  .-mx-4 {
+    margin-inline: calc(var(--spacing) * -4);
   }
   .mt-2 {
     margin-top: calc(var(--spacing) * 2);
@@ -590,9 +575,6 @@
   .hidden {
     display: none;
   }
-  .inline-block {
-    display: inline-block;
-  }
   .inline-flex {
     display: inline-flex;
   }
@@ -606,8 +588,14 @@
   .h-3\.5 {
     height: calc(var(--spacing) * 3.5);
   }
+  .h-4 {
+    height: calc(var(--spacing) * 4);
+  }
   .h-5 {
     height: calc(var(--spacing) * 5);
+  }
+  .h-8 {
+    height: calc(var(--spacing) * 8);
   }
   .h-10 {
     height: calc(var(--spacing) * 10);
@@ -624,8 +612,8 @@
   .h-\[calc\(50\%-0\.5rem\)\] {
     height: calc(50% - 0.5rem);
   }
-  .h-\[calc\(100\%-5rem\)\] {
-    height: calc(100% - 5rem);
+  .h-\[calc\(100\%-7rem\)\] {
+    height: calc(100% - 7rem);
   }
   .h-full {
     height: 100%;
@@ -645,11 +633,11 @@
   .w-3\.5 {
     width: calc(var(--spacing) * 3.5);
   }
+  .w-4 {
+    width: calc(var(--spacing) * 4);
+  }
   .w-5 {
     width: calc(var(--spacing) * 5);
-  }
-  .w-10 {
-    width: calc(var(--spacing) * 10);
   }
   .w-80 {
     width: calc(var(--spacing) * 80);
@@ -758,11 +746,11 @@
       margin-block-end: calc(calc(var(--spacing) * 8) * calc(1 - var(--tw-space-y-reverse)));
     }
   }
+  .overflow-hidden {
+    overflow: hidden;
+  }
   .overflow-y-auto {
     overflow-y: auto;
-  }
-  .overflow-y-hidden {
-    overflow-y: hidden;
   }
   .rounded {
     border-radius: 0.25rem;
@@ -797,23 +785,23 @@
   .border-slate-300 {
     border-color: var(--color-slate-300);
   }
+  .bg-\[\#8b5cf6\] {
+    background-color: #8b5cf6;
+  }
   .bg-gray-700 {
     background-color: var(--color-gray-700);
   }
   .bg-gray-800 {
     background-color: var(--color-gray-800);
   }
-  .bg-gray-900 {
-    background-color: var(--color-gray-900);
+  .fill-amber-50 {
+    fill: var(--color-amber-50);
   }
   .fill-white {
     fill: var(--color-white);
   }
-  .object-cover {
-    object-fit: cover;
-  }
-  .object-center {
-    object-position: center;
+  .p-1 {
+    padding: calc(var(--spacing) * 1);
   }
   .p-2 {
     padding: calc(var(--spacing) * 2);
@@ -857,6 +845,9 @@
   .pb-2 {
     padding-bottom: calc(var(--spacing) * 2);
   }
+  .pb-4 {
+    padding-bottom: calc(var(--spacing) * 4);
+  }
   .pl-4 {
     padding-left: calc(var(--spacing) * 4);
   }
@@ -877,6 +868,10 @@
   .text-sm {
     font-size: var(--text-sm);
     line-height: var(--tw-leading, var(--text-sm--line-height));
+  }
+  .text-xl {
+    font-size: var(--text-xl);
+    line-height: var(--tw-leading, var(--text-xl--line-height));
   }
   .text-xs {
     font-size: var(--text-xs);
@@ -932,19 +927,14 @@
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
-  .transition-colors {
-    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
-    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
-    transition-duration: var(--tw-duration, var(--default-transition-duration));
-  }
   .transition-opacity {
     transition-property: opacity;
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
-  .duration-400 {
-    --tw-duration: 400ms;
-    transition-duration: 400ms;
+  .select-none {
+    -webkit-user-select: none;
+    user-select: none;
   }
   .group-hover\:opacity-100 {
     &:is(:where(.group):hover *) {
@@ -979,13 +969,6 @@
     &:hover {
       @media (hover: hover) {
         background-color: var(--color-gray-700);
-      }
-    }
-  }
-  .hover\:bg-gray-800 {
-    &:hover {
-      @media (hover: hover) {
-        background-color: var(--color-gray-800);
       }
     }
   }
@@ -1038,37 +1021,63 @@
 }
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+:root {
+  --black-50: rgba(18, 18, 18, 255);
+  --black-100: rgba(30, 30, 31, 255);
+  --brd-black: hsl(0, 0%, 22%);
+}
 body {
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
+  background-color: transparent;
 }
 div {
   color: aliceblue;
-  user-select: none;
   ::-webkit-scrollbar {
-    width: 10px;
-  }
-  ::-webkit-scrollbar-track {
-    background: #2c3748;
-    border-radius: 10px;
+    width: 7px;
   }
   ::-webkit-scrollbar-thumb {
-    background: #4a5568;
-    border-radius: 10px;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: #718096;
+    background: var(--brd-black);
+    border-radius: 5px;
   }
 }
-button, li {
+button {
   cursor: pointer;
+}
+.draggable {
+  -webkit-app-region: drag;
+}
+.bg-eeblack1 {
+  background-color: var(--black-50);
+}
+.bg-eeblack2 {
+  background-color: var(--black-100);
+}
+.border-color {
+  border-color: var(--brd-black);
+}
+.primary-btn, li {
   transition: all 0.3s ease-in-out;
 }
-button:hover, li:hover {
+.primary-btn:hover, li:hover {
   background-color: #f8f8f815;
 }
+.btn-primary {
+  animation: buttonPulse 2s infinite;
+}
+@keyframes buttonPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(139, 92, 246, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(139, 92, 246, 0);
+  }
+}
 .blehh {
-  box-shadow: inset 0 0 0 1px #6a7282;
+  box-shadow: inset 0 0 0 1px var(--brd-black);
 }
 .blahh {
   background-color: #1c1c1c;
@@ -1252,10 +1261,6 @@ button:hover, li:hover {
   inherits: false;
 }
 @property --tw-backdrop-sepia {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-duration {
   syntax: "*";
   inherits: false;
 }

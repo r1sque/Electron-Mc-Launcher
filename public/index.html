@@ -8,65 +8,88 @@
     <link rel="stylesheet" href="output.css">
 </head>
 
-<body class="bg-gray-900 overflow-y-hidden">
+<body class="overflow-hidden">
 
-    <div class="h-screen flex-col p-4">
+    <div class="h-screen flex-col select-none rounded-md bg-eeblack1 px-4 pb-4">
+
+        <div class="flex items-center justify-between p-2 h-8 -mx-4">
+        
+            <div class="flex flex-grow draggable">
+                <h1 class="font-semibold text-white select-none">Minecraft Launcher</h1>
+            </div>
+        
+            <div class="flex items-center gap-2">
+                <button id="minimize" class="p-1 rounded-md primary-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="h-4 w-4 fill-amber-50">
+                        <path d="M200-440v-80h560v80H200Z" />
+                    </svg>
+                </button>
+
+                <button id="restore" class="p-1 rounded-md primary-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="h-4 w-4 fill-amber-50">
+                    <path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Z" />
+                    </svg>
+                </button>
+
+                <button id="close" class="p-1 rounded-md primary-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="h-4 w-4 fill-amber-50">
+                        <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
 
         <!-- Topbar Area -->
-        <div class="h-16 bg-gray-700 rounded-lg mb-4 flex items-center justify-between px-4">
+        <div class="h-16 border border-color rounded-lg mb-4 flex items-center justify-between px-4  bg-eeblack2 ">
 
             <!-- Left-aligned Buttons -->
             <div class="flex flex-1 items-center gap-8 max-w-[30%]">
-                <button id="homeButton"     class="px-4 py-2 border-2 border-gray-500 rounded-md">Home</button>
-                <button id="versionsButton" class="px-4 py-2 border-2 border-gray-500 rounded-md">Versions</button>
-                <button id="modsButton"     class="px-4 py-2 border-2 border-gray-500 rounded-md">Misc</button>
-                <button id="settingsButton" class="px-4 py-2 border-2 border-gray-500 rounded-md">Settings</button>
+                <button class="px-4 py-2 border-2 border-color rounded-md primary-btn">Home</button>
+                <button class="px-4 py-2 border-2 border-color rounded-md primary-btn">Versions</button>
+                <button class="px-4 py-2 border-2 border-color rounded-md primary-btn">Misc</button>
+                <button class="px-4 py-2 border-2 border-color rounded-md primary-btn">Settings</button>
             </div>
     
             <!-- Right-aligned Button -->
-            <div class="flex items-center gap-4 hover:bg-gray-800 transition-colors duration-400 rounded-md py-2 px-3 cursor-pointer">
-
-                <!-- https://mc-heads.net for the head avatar of the user -->
-                <img src="https://mc-heads.net/avatar/fe02b95b8a084ef59558233480c6b954" alt="avatar" 
-                    class="inline-block relative object-cover object-center rounded-lg w-10 h-10" />
-                <div>
-                    <h6 class="font-semibold">
-                        Embrasadas
-                    </h6>
-                    <p class="text-gray-300 text-sm">
-                        Minecraft Account
-                    </p>
-                </div>
+            <div class="flex items-center gap-4">
+                <a href="https://github.com/r1sque/Electron-Mc-Launcher">
+                    <button class="bg-[#8b5cf6] px-4 py-2 border border-color rounded-md btn-primary">
+                        Github
+                    </button>
+                </a>
             </div>
         </div>
     
         <!-- Content Area -->
-        <div class="flex flex-1 gap-4 h-[calc(100%-5rem)]">
+        <div class="flex flex-1 gap-4 h-[calc(100%-7rem)]">
             
             <!-- Sidebar -->
-            <div class="w-1/5 h-full bg-gray-700 rounded-lg py-4 pl-4 pr-1">
-                <h1 class="text-2xl font-bold text-white">Version List</h1>
-                <ul class="mt-4 h-[90%] pr-2 overflow-y-auto">
-                    <li class="p-2 border-b border-gray-600"><a href="#" class="text-white">1.21.1</a></li>
-                    <li class="p-2 border-b border-gray-600"><a href="#" class="text-white">1.20.4</a></li>
-                    <li class="p-2 border-b border-gray-600"><a href="#" class="text-white">1.12.2</a></li>
-                    <li class="p-2 border-b border-gray-600"><a href="#" class="text-white">1.8.9</a></li>
-                    <li class="p-2 border-b border-gray-600"><a href="#" class="text-white">1.7.10</a></li>
+            <div class="w-1/5 h-full rounded-lg py-4 pl-4 pr-1 border border-color  bg-eeblack2">
+                <h1 class="text-xl font-bold text-white">Recent Played</h1>
+                <ul id="RecentPlayed" class="mt-4 h-[90%] pr-2 overflow-y-auto">
+                    <li class="p-2 border-b border-color"><a href="#" class="text-white">1.21.1</a></li>
+                    <li class="p-2 border-b border-color"><a href="#" class="text-white">1.20.4</a></li>
+                    <li class="p-2 border-b border-color"><a href="#" class="text-white">1.12.2</a></li>
+                    <li class="p-2 border-b border-color"><a href="#" class="text-white">1.8.9</a></li>
+                    <li class="p-2 border-b border-color"><a href="#" class="text-white">1.7.10</a></li>
                 </ul>
             </div>
     
             <!-- Main Content -->
-            <div id="mainContent" class="flex-1 bg-gray-700 rounded-lg p-4 flex flex-col items-center gap-4">
+            <div class="flex-1 rounded-lg p-4 flex flex-col items-center gap-4 border border-color  bg-eeblack2">
+
                 <h1 class="text-2xl font-bold text-white">Welcome to the Minecraft Launcher</h1>
+
                 <div class="flex flex-col items-center gap-2">
-                    <button type="button" id="launch-button"
-                        class="w-80 px-4 py-2 bg-gray-800 border-2 border-gray-500 rounded-md">Play</button>
+                    <button type="button" id="launch-button" class="w-80 px-4 py-2 border-2 border-color rounded-md primary-btn">
+                        Play
+                    </button>
                     <h1 class="font-semibold text-gray-300">Selected Version 1.21.1 With Account Embrassadas</h1>
                 </div>
 
                 <div class="flex flex-col items-center gap-4">
                     <select id="version-select"
-                        class="p-2 pe-9 w-full rounded-md text-sm bg-gray-800 text-gray-200 border-2 border-gray-500 focus:outline-none focus:ring focus:ring-gray-600">
+                        class="p-2 pe-9 w-full bg-eeblack2 rounded-md text-sm text-gray-200 border-2 border-color focus:outline-none focus:ring focus:ring-gray-600">
                         <option value="1.21.1">Minecraft 1.21.1</option>
                         <option value="1.20.4">Minecraft 1.20.4</option>
                         <option value="1.20.3">Minecraft 1.20.3</option>
@@ -126,14 +149,72 @@
                         <option value="1.8.0">Minecraft 1.8.0</option>
                     </select>
                 </div>
+                
             </div>
         </div>
     </div>
 </body>
 
 <script src="../src/renderer.js"></script>
-<script>
-
-</script>
 
 </html>
+
+<!-- <body class="bg-gray-900 overflow-y-hidden">
+
+    <div class="h-screen flex-col p-4">
+
+        <div class="h-16 bg-gray-700 rounded-lg mb-4 flex items-center justify-between px-4">
+
+            <div class="flex flex-1 items-center gap-8 max-w-[30%]">
+                <button id="homeButton" class="px-4 py-2 border-2 border-gray-500 rounded-md">Home</button>
+                <button id="versionsButton" class="px-4 py-2 border-2 border-gray-500 rounded-md">Versions</button>
+                <button id="modsButton" class="px-4 py-2 border-2 border-gray-500 rounded-md">Misc</button>
+                <button id="settingsButton" class="px-4 py-2 border-2 border-gray-500 rounded-md">Settings</button>
+            </div>
+
+            <div
+                class="flex items-center gap-4 hover:bg-gray-800 transition-colors duration-400 rounded-md py-2 px-3 cursor-pointer">
+                <img src="https://mc-heads.net/avatar/fe02b95b8a084ef59558233480c6b954" alt="avatar"
+                    class="inline-block relative object-cover object-center rounded-lg w-10 h-10" />
+                <div>
+                    <h6 class="font-semibold">
+                        Embrasadas
+                    </h6>
+                    <p class="text-gray-300 text-sm">
+                        Minecraft Account
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-1 gap-4 h-[calc(100%-5rem)]">
+
+            <div class="w-1/5 h-full bg-gray-700 rounded-lg py-4 pl-4 pr-1">
+                <h1 class="text-2xl font-bold text-white">Version List</h1>
+                <ul class="mt-4 h-[90%] pr-2 overflow-y-auto">
+                    <li class="p-2 border-b border-gray-600"><a href="#" class="text-white">1.21.1</a></li>
+                    <li class="p-2 border-b border-gray-600"><a href="#" class="text-white">1.20.4</a></li>
+                    <li class="p-2 border-b border-gray-600"><a href="#" class="text-white">1.12.2</a></li>
+                    <li class="p-2 border-b border-gray-600"><a href="#" class="text-white">1.8.9</a></li>
+                    <li class="p-2 border-b border-gray-600"><a href="#" class="text-white">1.7.10</a></li>
+                </ul>
+            </div>
+
+            <div id="mainContent" class="flex-1 bg-gray-700 rounded-lg p-4 flex flex-col items-center gap-4">
+                <h1 class="text-2xl font-bold text-white">Welcome to the Minecraft Launcher</h1>
+                <div class="flex flex-col items-center gap-2">
+                    <button type="button" id="launch-button"
+                        class="w-80 px-4 py-2 bg-gray-800 border-2 border-gray-500 rounded-md">Play</button>
+                    <h1 class="font-semibold text-gray-300">Selected Version 1.21.1 With Account Embrassadas</h1>
+                </div>
+
+                <div class="flex flex-col items-center gap-4">
+                    <select id="version-select"
+                        class="p-2 pe-9 w-full rounded-md text-sm bg-gray-800 text-gray-200 border-2 border-gray-500 focus:outline-none focus:ring focus:ring-gray-600">
+                        <option value="1.21.1">Minecraft 1.21.1</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</body> -->
