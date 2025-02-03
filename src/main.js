@@ -1,8 +1,9 @@
 const { app, BrowserWindow, ipcMain } = require("electron");
 const { Client } = require("minecraft-launcher-core");
 const { Auth } = require("msmc");
-const path = require("path"); // Import the path module
-const fs = require("fs"); // Import the fs module
+const path = require("path"); 
+const fs = require("fs"); 
+const os = require("os");
 
 let mainWindow;
 
@@ -12,6 +13,9 @@ function createWindow() {
     height: 824,
     minWidth: 1100,
     minHeight: 700,
+    frame: false,
+    backgroundColor: "#00000000",
+    icon: path.join(__dirname, "build/favicon.ico"), // Path to your icon file
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
       contextIsolation: true,
@@ -42,22 +46,22 @@ async function launchMinecraft(version) {
   const authManager = new Auth("select_account");
 
   try {
-    // Authenticate the user
     const xboxManager = await authManager.launch("raw");
     const token = await xboxManager.getMinecraft();
+    const minecraftDir = path.join(os.homedir(), 'AppData', 'Roaming', '.minecraft');
 
-    // Configure Minecraft launch options
+   
     const opts = {
       clientPackage: null,
-      authorization: token.mclc(), // Convert msmc token to mclc format
-      root: "./.minecraft", // Minecraft directory
+      authorization: token.mclc(),
+      root: minecraftDir,
       version: {
-        number: version, // Use the selected version
-        type: "release", // 'release', 'snapshot', or 'beta'
+        number: version,
+        type: "release",
       },
       memory: {
-        max: "6G", // Maximum memory
-        min: "4G", // Minimum memory
+        max: "6G",
+        min: "4G",
       },
       javaPath: "C:/Program Files/Java/jdk-21/bin/java.exe",
     };
@@ -92,4 +96,33 @@ app.whenReady().then(() => {
 
 app.on("window-all-closed", () => {
   if (process.platform !== "darwin") app.quit();
+});
+
+
+
+ipcMain.on('minimize-window', () => {
+    const window = BrowserWindow.getFocusedWindow();
+    if (window) {
+        window.minimize();
+    }
+});
+
+
+ipcMain.on('restore-window', () => {
+    const window = BrowserWindow.getFocusedWindow();
+    if (window) {
+        if (window.isMaximized()) {
+            window.unmaximize();
+        } else {
+            window.maximize();
+        }
+    }
+});
+
+
+ipcMain.on('close-window', () => {
+    const window = BrowserWindow.getFocusedWindow();
+    if (window) {
+        window.close();
+    }
 });
