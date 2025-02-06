@@ -67,7 +67,12 @@ button {
   100% { box-shadow: 0 0 0 0 rgba(139, 92, 246, 0); }
 }
 
-/* .btn-primary::after,
+
+.btn-secondary {
+  position: relative;
+  overflow: hidden; /* Ensures the effect stays within the button's bounds */
+}
+
 .btn-secondary::after {
   content: '';
   position: absolute;
@@ -80,10 +85,9 @@ button {
   transition: transform 0.5s ease-out;
 }
 
-.btn-primary:hover::after,
 .btn-secondary:hover::after {
   transform: translate(-50%, -50%) scale(1);
-} */
+}
 
 .blehh {
   box-shadow: inset 0 0 0 1px var(--brd-black);
@@ -103,6 +107,10 @@ button {
   margin: auto;
   padding: 0.5rem 0.3rem;
   border-radius: 6px;
+  transition: all 0.3s ease-in-out;
+}
+.ver:hover {
+  background-color: #f8f8f815;
 }
 
 /* --jet: hsl(0, 0%, 22%);
@@ -110,3 +118,36 @@ button {
 --eerie-black1: hsl(240, 2%, 13%);
 --eerie-black2: hsl(240, 2%, 12%);
 --smoky-black: hsl(0, 0%, 7%); */
+
+
+.animated-underline-btn {
+  position: relative;
+  padding: 0.5rem 0.75rem; /* Equivalent to py-2 px-3 */
+  color: rgba(255, 255, 255, 0.5); /* Equivalent to text-white/50 */
+  transition: color 0.3s;
+}
+
+.animated-underline-btn:hover {
+  color: rgb(212, 169, 255);
+}
+
+.animated-underline-btn::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  background-color: rgb(212, 169, 255);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.4s;
+}
+
+.animated-underline-btn:hover::after {
+  transform: scaleX(1);
+}
+
+::placeholder {
+  color: rgba(255, 255, 255, 0.5); 
+}
