@@ -63,7 +63,7 @@ async function launchMinecraft(version) {
         max: "6G",
         min: "4G",
       },
-      javaPath: "C:/Program Files/Java/jdk-21/bin/java.exe",
+      javaPath: "C:/Users/Admin/AppData/Roaming/ModrinthApp/meta/java_versions/zulu21.36.17-ca-jre21.0.4-win_x64/bin/javaw.exe",
     };
 
     console.log(`Starting Minecraft ${version}...`);
@@ -99,30 +99,27 @@ app.on("window-all-closed", () => {
 });
 
 
-
 ipcMain.on('minimize-window', () => {
-    const window = BrowserWindow.getFocusedWindow();
-    if (window) {
-        window.minimize();
-    }
+  const window = BrowserWindow.getFocusedWindow();
+  if (window) {
+    window.minimize();
+  }
 });
-
 
 ipcMain.on('restore-window', () => {
-    const window = BrowserWindow.getFocusedWindow();
-    if (window) {
-        if (window.isMaximized()) {
-            window.unmaximize();
-        } else {
-            window.maximize();
-        }
+  const window = BrowserWindow.getFocusedWindow();
+  if (window) {
+    if (window.isMaximized()) {
+      window.unmaximize();
+    } else {
+      window.maximize();
     }
+  }
 });
 
-
 ipcMain.on('close-window', () => {
-    const window = BrowserWindow.getFocusedWindow();
-    if (window) {
-        window.close();
-    }
+  const window = BrowserWindow.getFocusedWindow();
+  if (window) {
+    window.close();
+  }
 });
