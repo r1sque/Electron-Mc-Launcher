@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Electron App</title>
+    <title>Proton Launcher</title>
     <link rel="stylesheet" href="output.css">
 </head>
 
@@ -14,8 +14,9 @@
 
         <div class="flex items-center justify-between p-2 h-8 -mx-4">
         
-            <div class="flex flex-grow draggable">
-                <h1 class="font-semibold text-white select-none">Minecraft Launcher</h1>
+            <div class="flex flex-grow items-center draggable gap-x-2">
+                <img src="../build/favicon.ico" alt="main" class="h-4 w-4 ml-3">
+                <h1 class="font-semibold text-white select-none">Proton Launcher</h1>
             </div>
         
             <div class="flex items-center gap-2">
@@ -44,19 +45,17 @@
 
             <!-- Left-aligned Buttons -->
             <div class="flex flex-1 items-center gap-8 max-w-[30%]">
-                <button class="px-4 py-2 border-2 border-color rounded-md primary-btn">Home</button>
-                <button class="px-4 py-2 border-2 border-color rounded-md primary-btn">Versions</button>
-                <button class="px-4 py-2 border-2 border-color rounded-md primary-btn">Misc</button>
-                <button class="px-4 py-2 border-2 border-color rounded-md primary-btn">Settings</button>
+                <button class="animated-underline-btn">Home</button>
+                <button class="animated-underline-btn">Versions</button>
+                <button class="animated-underline-btn">Misc</button>
+                <button class="animated-underline-btn">Settings</button>
             </div>
     
             <!-- Right-aligned Button -->
             <div class="flex items-center gap-4">
-                <a href="https://github.com/r1sque/Electron-Mc-Launcher">
-                    <button class="bg-[#8b5cf6] px-4 py-2 border border-color rounded-md btn-primary">
-                        Github
-                    </button>
-                </a>
+                <button class="bg-[#8b5cf6] px-4 py-2 border border-color rounded-md btn-primary">
+                    Github
+                </button>
             </div>
         </div>
     
@@ -78,78 +77,48 @@
             <!-- Main Content -->
             <div class="flex-1 rounded-lg p-4 flex flex-col items-center gap-4 border border-color  bg-eeblack2">
 
-                <h1 class="text-2xl font-bold text-white">Welcome to the Minecraft Launcher</h1>
+                <h1 class="text-3xl font-semibold bg-gradient-to-r from-purple-400 to-white text-transparent bg-clip-text">Welcome to Proton Minecraft Launcher</h1>
 
                 <div class="flex flex-col items-center gap-2">
-                    <button type="button" id="launch-button" class="w-80 px-4 py-2 border-2 border-color rounded-md primary-btn">
+                    <button type="button" id="launch-button" class="bg-green-700 w-64 px-4 py-2 border border-color rounded-md btn-secondary">
                         Play
                     </button>
                     <h1 class="font-semibold text-gray-300">Selected Version 1.21.1 With Account Embrassadas</h1>
                 </div>
 
-                <div class="flex flex-col items-center gap-4">
-                    <select id="version-select"
-                        class="p-2 pe-9 w-full bg-eeblack2 rounded-md text-sm text-gray-200 border-2 border-color focus:outline-none focus:ring focus:ring-gray-600">
-                        <option value="1.21.1">Minecraft 1.21.1</option>
-                        <option value="1.20.4">Minecraft 1.20.4</option>
-                        <option value="1.20.3">Minecraft 1.20.3</option>
-                        <option value="1.20.2">Minecraft 1.20.2</option>
-                        <option value="1.20.1">Minecraft 1.20.1</option>
-                        <option value="1.20.0">Minecraft 1.20.0</option>
-                        <option value="1.19.4">Minecraft 1.19.4</option>
-                        <option value="1.19.3">Minecraft 1.19.3</option>
-                        <option value="1.19.2">Minecraft 1.19.2</option>
-                        <option value="1.19.1">Minecraft 1.19.1</option>
-                        <option value="1.19.0">Minecraft 1.19.0</option>
-                        <option value="1.18.2">Minecraft 1.18.2</option>
-                        <option value="1.18.1">Minecraft 1.18.1</option>
-                        <option value="1.18.0">Minecraft 1.18.0</option>
-                        <option value="1.17.1">Minecraft 1.17.1</option>
-                        <option value="1.17.0">Minecraft 1.17.0</option>
-                        <option value="1.16.5">Minecraft 1.16.5</option>
-                        <option value="1.16.4">Minecraft 1.16.4</option>
-                        <option value="1.16.3">Minecraft 1.16.3</option>
-                        <option value="1.16.2">Minecraft 1.16.2</option>
-                        <option value="1.16.1">Minecraft 1.16.1</option>
-                        <option value="1.16.0">Minecraft 1.16.0</option>
-                        <option value="1.15.2">Minecraft 1.15.2</option>
-                        <option value="1.15.1">Minecraft 1.15.1</option>
-                        <option value="1.15.0">Minecraft 1.15.0</option>
-                        <option value="1.14.4">Minecraft 1.14.4</option>
-                        <option value="1.14.3">Minecraft 1.14.3</option>
-                        <option value="1.14.2">Minecraft 1.14.2</option>
-                        <option value="1.14.1">Minecraft 1.14.1</option>
-                        <option value="1.14.0">Minecraft 1.14.0</option>
-                        <option value="1.13.2">Minecraft 1.13.2</option>
-                        <option value="1.13.1">Minecraft 1.13.1</option>
-                        <option value="1.13.0">Minecraft 1.13.0</option>
-                        <option value="1.12.2">Minecraft 1.12.2</option>
-                        <option value="1.12.1">Minecraft 1.12.1</option>
-                        <option value="1.12.0">Minecraft 1.12.0</option>
-                        <option value="1.11.2">Minecraft 1.11.2</option>
-                        <option value="1.11.1">Minecraft 1.11.1</option>
-                        <option value="1.11.0">Minecraft 1.11.0</option>
-                        <option value="1.10.2">Minecraft 1.10.2</option>
-                        <option value="1.10.1">Minecraft 1.10.1</option>
-                        <option value="1.10.0">Minecraft 1.10.0</option>
-                        <option value="1.9.4">Minecraft 1.9.4</option>
-                        <option value="1.9.3">Minecraft 1.9.3</option>
-                        <option value="1.9.2">Minecraft 1.9.2</option>
-                        <option value="1.9.1">Minecraft 1.9.1</option>
-                        <option value="1.9.0">Minecraft 1.9.0</option>
-                        <option value="1.8.9">Minecraft 1.8.9</option>
-                        <option value="1.8.8">Minecraft 1.8.8</option>
-                        <option value="1.8.7">Minecraft 1.8.7</option>
-                        <option value="1.8.6">Minecraft 1.8.6</option>
-                        <option value="1.8.5">Minecraft 1.8.5</option>
-                        <option value="1.8.4">Minecraft 1.8.4</option>
-                        <option value="1.8.3">Minecraft 1.8.3</option>
-                        <option value="1.8.2">Minecraft 1.8.2</option>
-                        <option value="1.8.1">Minecraft 1.8.1</option>
-                        <option value="1.8.0">Minecraft 1.8.0</option>
-                    </select>
-                </div>
+                <div class="relative w-full">
+
+                    <div class="px-3 py-2 w-full bg-eeblack2 border border-color rounded-md cursor-pointer flex justify-between items-center"
+                        id="dropdown-button"
+                        onclick="toggleDropdown()">
+                        <span id="selected-version">Select game version</span>
+
+                        <svg id="dropdown-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" 
+                            class="h-6 w-6 fill-amber-50 z-20">
+                            <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" />
+                        </svg>
+                    </div>
                 
+                    <!-- Dropdown List -->
+                    <div id="dropdown-menu" class="absolute top-0 w-full bg-eeblack2 border border-color rounded-md hidden">
+                        <input type="text" id="searchInput" placeholder="Select game version..."
+                            class="w-full px-3 py-2 bg-eeblack2 border-b border-color rounded-t-md focus:outline-none"
+                            onkeyup="filterVersions()">
+                        <div id="dropdown-content" class="max-h-48 overflow-auto grid grid-cols-3 gap-2 p-2">
+                            <div class="option ver cursor-pointer" data-value="1.21.4">1.21.4</div>
+                            <div class="option ver cursor-pointer" data-value="1.21.3">1.21.3</div>
+                            <div class="option ver cursor-pointer" data-value="1.21.2">1.21.2</div>
+                            <div class="option ver cursor-pointer" data-value="1.21.1">1.21.1</div>
+                            <div class="option ver cursor-pointer" data-value="1.21">  1.21  </div>
+                            <div class="option ver cursor-pointer" data-value="1.20.6">1.20.6</div>
+                            <div class="option ver cursor-pointer" data-value="1.20.5">1.20.5</div>
+                            <div class="option ver cursor-pointer" data-value="1.20.4">1.20.4</div>
+                            <div class="option ver cursor-pointer" data-value="1.20.3">1.20.3</div>
+                            <div class="option ver cursor-pointer" data-value="1.20.2">1.20.2</div>
+                            <div class="option ver cursor-pointer" data-value="1.20.1">1.20.1</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
