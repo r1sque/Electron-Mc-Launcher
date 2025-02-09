@@ -24,17 +24,19 @@ Electron-Mc-Launcher
 
 - [x] Main UI
    - [x] Improve UI design (small sizing)
-   - [ ] Overhaul UI design
+   - [x] Overhaul UI design
+   - [x] Make the version selector better
+   - [ ] Make the previously launched section work
    - [ ] Add theme selection
 - [x] Dynamic main content UI
 - [x] Project readability
 - [x] Add base Minecraft launcher logic
    - [x] Add logging in via Microsoft API
    - [x] Add version selector 
-   - [ ] Get versions dynamically using an API like [PrismarineJS/minecraft-data](https://github.com/PrismarineJS/minecraft-data)
-   - [ ] Create an account manager
+   - [x] Get versions dynamically using an API like [PrismarineJS/minecraft-data](https://github.com/PrismarineJS/minecraft-data)
+   - [ ] Make the account manager
 - [x] Frameless app
-- [ ] add java version selector with dynamic download and installation (using [jijiechen/node-minecraft-launcher](https://github.com/jijiechen/node-minecraft-launcher))
+- [ ] make the launcher have the option to install java 8, 17 and 21 (and use the according one depending on the version launched for performance) (using [jijiechen/node-minecraft-launcher](https://github.com/jijiechen/node-minecraft-launcher)) 
 
 ## Getting Started
 
