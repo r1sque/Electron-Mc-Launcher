@@ -5,7 +5,6 @@
   "main": "src/main.js",
   "scripts": {
     "start": "electron .",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build:css": "npx @tailwindcss/cli -i ./public/input.css -o ./public/output.css --watch",
     "build": "electron-builder"
   },
@@ -32,6 +31,7 @@
     "tailwindcss": "^4.0.3"
   },
   "dependencies": {
+    "minecraft-data": "^3.83.1",
     "minecraft-launcher-core": "^3.18.2",
     "msmc": "^5.0.5"
   },
