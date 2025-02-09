@@ -5,6 +5,8 @@
 :root {
   --black-50: rgba(18, 18, 18, 255);
   --black-100: rgba(30, 30, 31, 255);
+  --black-200: rgba(42, 42, 43, 255);
+  --black-300: hsl(240, 1%, 17%);
   --brd-black: hsl(0, 0%, 22%);
 }
 
@@ -19,7 +21,7 @@ div {
   color: aliceblue;
 
   ::-webkit-scrollbar {
-    width: 7px;
+    width: 5px;
   }
 
   ::-webkit-scrollbar-thumb {
@@ -43,6 +45,10 @@ button {
 
 .bg-eeblack2 {
   background-color: var(--black-100);
+}
+
+.bg-eeblack3 {
+  background-color: var(--black-200);
 }
 
 .border-color {
@@ -124,12 +130,15 @@ button {
   position: relative;
   padding: 0.5rem 0.75rem; /* Equivalent to py-2 px-3 */
   color: rgba(255, 255, 255, 0.5); /* Equivalent to text-white/50 */
+  fill: rgba(255, 255, 255, 0.5);
   transition: color 0.3s;
+  transition: fill 0.3s;
 }
 
 .animated-underline-btn:hover {
   color: #cdcdd7;
   text-shadow: rgba(132,132,148,0.9) 0px 0px 10px;
+  fill: #cdcdd7;
 }
 
 .animated-underline-btn::after {

@@ -8,31 +8,31 @@
     <link rel="stylesheet" href="output.css">
 </head>
 
-<body class="overflow-hidden">
+<body class="overflow-hidden scroll-smooth tracking-wide">
 
     <div class="h-screen flex-col select-none rounded-md bg-eeblack1 px-4 pb-4">
 
-        <div class="flex items-center justify-between p-2 h-8 -mx-4">
+        <div class="flex items-center justify-between p-2 h-10 -mx-4">
         
             <div class="flex flex-grow items-center draggable gap-x-2">
                 <img src="../build/favicon.ico" alt="main" class="h-4 w-4 ml-3">
-                <h1 class="font-semibold text-white select-none">Proton Launcher</h1>
+                <h1 class="font-semibold select-none">Proton Launcher</h1>
             </div>
         
             <div class="flex items-center gap-2">
-                <button id="minimize" class="p-1 rounded-md primary-btn">
+                <button id="minimize" class="p-2 rounded-md primary-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="h-4 w-4 fill-amber-50">
                         <path d="M200-440v-80h560v80H200Z" />
                     </svg>
                 </button>
 
-                <button id="restore" class="p-1 rounded-md primary-btn">
+                <button id="restore" class="p-2 rounded-md primary-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="h-4 w-4 fill-amber-50">
                     <path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Z" />
                     </svg>
                 </button>
 
-                <button id="close" class="p-1 rounded-md primary-btn">
+                <button id="close" class="p-2 rounded-md transition-colors duration-400 hover:bg-red-600/70">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="h-4 w-4 fill-amber-50">
                         <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
                     </svg>
@@ -44,23 +44,155 @@
         <div class="h-16 border border-color rounded-lg mb-4 flex items-center justify-between px-4 bg-eeblack2 ">
 
             <!-- Left-aligned Buttons -->
-            <div class="flex flex-1 items-center gap-8 max-w-[30%]">
+            <div class="flex flex-1 items-center gap-8">
+
                 <button class="animated-underline-btn">Home</button>
+
                 <button class="animated-underline-btn">Versions</button>
-                <button class="animated-underline-btn">Misc</button>
-                <button class="animated-underline-btn">Settings</button>
-            </div>
-    
-            <!-- Right-aligned Button -->
-            <div class="flex items-center gap-4">
+
+                <button id="showOverlay" class="animated-underline-btn inline-flex items-center gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="h-5 w-5">
+                        <path d="m370-80-16-128q-13-5-24.5-12T307-235l-119 50L78-375l103-78q-1-7-1-13.5v-27q0-6.5 1-13.5L78-585l110-190 119 50q11-8 23-15t24-12l16-128h220l16 128q13 5 24.5 12t22.5 15l119-50 110 190-103 78q1 7 1 13.5v27q0 6.5-2 13.5l103 78-110 190-118-50q-11 8-23 15t-24 12L590-80H370Zm70-80h79l14-106q31-8 57.5-23.5T639-327l99 41 39-68-86-65q5-14 7-29.5t2-31.5q0-16-2-31.5t-7-29.5l86-65-39-68-99 42q-22-23-48.5-38.5T533-694l-13-106h-79l-14 106q-31 8-57.5 23.5T321-633l-99-41-39 68 86 64q-5 15-7 30t-2 32q0 16 2 31t7 30l-86 65 39 68 99-42q22 23 48.5 38.5T427-266l13 106Zm42-180q58 0 99-41t41-99q0-58-41-99t-99-41q-59 0-99.5 41T342-480q0 58 40.5 99t99.5 41Zm-2-140Z" />
+                    </svg>
+                    Settings
+                </button>
+
                 <button class="bg-[#838394] px-4 py-2 border border-color rounded-md btn-pulse btn-radial">
                     Github
                 </button>
             </div>
+            
+            <div class="relative flex items-center gap-4 text-ellipsis">
+            
+                <h1 class="font-semibold">Playing as</h1>
+            
+                <div class="flex items-center gap-4 transition-colors duration-400 rounded-md py-2 px-3 cursor-pointer hover:bg-white/10"
+                    id="dropdown-button" onclick="AccountMenu()">
+            
+                    <img src="https://mc-heads.net/avatar/fe02b95b8a084ef59558233480c6b954" alt="avatar"
+                        class="inline-block relative object-cover object-center rounded-lg w-9 h-9" />
+                    <div>
+                        <h6 class="font-semibold text-sm">
+                            Embrasadas
+                        </h6>
+                        <p class="bg-gradient-to-r from-amber-200 to-amber-100 text-transparent bg-clip-text text-xs">
+                            Premium Account
+                        </p>
+                    </div>
+            
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="h-6 w-6 fill-amber-50 z-10">
+                        <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" />
+                    </svg>
+                </div>
+            
+                <div id="account-menu" class="absolute top-0 -right-2 w-[230] bg-eeblack2 border border-color rounded-md z-20 hidden">
+            
+                    <input type="text" id="accountInput" placeholder="Search Account..."
+                        class="w-full px-3 py-3 bg-eeblack2 border-b border-color rounded-t-md focus:outline-none"
+                        onkeyup="filterVersions()">
+                        
+                    <div id="account-content" class="w-[248px] min-h-[68px] max-h-44 overflow-auto 3 gap-2 p-2 rounded-b-md">
+            
+                        <div class="option flex items-center justify-between gap-4 transition-colors duration-400 rounded-md py-2 px-3 cursor-pointer hover:bg-white/10 overflow-hidden">
+                            <img src="https://mc-heads.net/avatar/fe02b95b8a084ef59558233480c6b954" alt="avatar"
+                                class="inline-block relative object-cover object-center rounded-lg w-8 h-8" />
+                            <div class="flex-1 min-w-0 items-start">
+                                <h6 class="font-semibold text-sm overflow-hidden text-ellipsis whitespace-nowrap">
+                                    Embrasadas
+                                </h6>
+                                <p class="bg-gradient-to-r from-amber-200 to-amber-100 text-transparent bg-clip-text text-xs">
+                                    Premium Account
+                                </p>
+                            </div>
+                            <button id="removeAccount" class="fill-amber-50 transition-colors duration-400 hover:fill-[#e78788]">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="h-6 w-6">
+                                    <path d="m336-280-56-56 144-144-144-143 56-56 144 144 143-144 56 56-144 143 144 144-56 56-143-144-144 144Z" />
+                                </svg>
+                            </button>
+                        </div>
+            
+                        <div class="option flex items-center justify-between gap-4 transition-colors duration-400 rounded-md py-2 px-3 cursor-pointer hover:bg-white/10 overflow-hidden">
+                            <img src="https://mc-heads.net/avatar/9cb6a52c55bc456b9513f4cf19cdf9e3" alt="avatar"
+                                class="inline-block relative object-cover object-center rounded-lg w-8 h-8" />
+                            <div class="flex-1 min-w-0 items-start"> <!-- Added flex-grow and min-w-0 to make the name of the account not return to the line 👍 -->
+                                <h6 class="font-semibold text-sm overflow-hidden text-ellipsis whitespace-nowrap">
+                                    Le Man
+                                </h6>
+                                <p class="bg-gradient-to-r from-red-300 to-red-100 text-transparent bg-clip-text text-xs">
+                                    Cracked Account
+                                </p>
+                            </div>
+                            <button id="removeAccount" class="fill-amber-50 transition-colors duration-400 hover:fill-[#e78788]">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="h-6 w-6">
+                                    <path
+                                        d="m336-280-56-56 144-144-144-143 56-56 144 144 143-144 56 56-144 143 144 144-56 56-143-144-144 144Z" />
+                                </svg>
+                            </button>
+                        </div>
+
+                    </div>
+
+                    <div class="flex flex-col items-start gap-2 p-2 border-t border-color">
+
+                        <button id="" class="flex items-center justify-center w-full py-2 px-4 rounded-md bg-green-700 font-semibold btn-radial text-sm gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="h-4 w-4 fill-white">
+                                <path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z" />
+                            </svg>
+                            Add Account
+                        </button>
+
+                        <div class="inline-flex items-start justify-between">
+                            <label class="flex items-start cursor-pointer relative">
+                                <input type="checkbox" checked
+                                    class="peer h-4 w-4 cursor-pointer transition-all appearance-none rounded shadow hover:shadow-md border border-slate-300 checked:bg-[#e78788] checked:border-white/10" />
+                                <span class="absolute text-white opacity-0 peer-checked:opacity-100 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor"
+                                        stroke="currentColor" stroke-width="1">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z">
+                                        </path>
+                                    </svg>
+                                </span>
+                            </label>
+                            <label class="cursor-pointer ml-2 text-sm translate-y-[-2.5px]">
+                                <div>
+                                    <p class="bg-gradient-to-r from-amber-200 to-amber-100 text-transparent bg-clip-text text-sm">
+                                        Show Premium Account
+                                    </p>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="inline-flex items-start">
+                            <label class="flex items-start cursor-pointer relative">
+                                <input type="checkbox" checked
+                                    class="peer h-4 w-4 cursor-pointer transition-all appearance-none rounded shadow hover:shadow-md border border-slate-300 checked:bg-[#e78788] checked:border-white/10" />
+                                <span
+                                    class="absolute text-white opacity-0 peer-checked:opacity-100 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor"
+                                        stroke="currentColor" stroke-width="1">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z">
+                                        </path>
+                                    </svg>
+                                </span>
+                            </label>
+                            <label class="cursor-pointer ml-2 text-sm translate-y-[-2.5px]">
+                                <div>
+                                    <p class="bg-gradient-to-r from-red-300 to-red-100 text-transparent bg-clip-text text-sm">
+                                        Show Cracked Account
+                                    </p>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
         </div>
     
         <!-- Content Area -->
-        <div class="flex flex-1 gap-4 h-[calc(100%-7rem)]">
+        <div class="flex flex-1 gap-4 h-[calc(100%-7.5rem)]">
             
             <!-- Sidebar -->
             <div class="w-1/5 h-full rounded-lg py-4 pl-4 pr-1 border border-color bg-eeblack2">
@@ -86,104 +218,243 @@
                     <h1 class="font-semibold text-gray-300">Selected Version 1.21.1 With Account Embrassadas</h1>
                 </div>
 
-                <div class="relative w-full">
+                <div class="relative w-full mt-20">
 
-                    <div class="px-3 py-2 w-full bg-eeblack2 border border-color rounded-md cursor-pointer flex justify-between items-center"
+                    <div class="px-3 py-2 w-full bg-eeblack2 border border-color rounded-md cursor-pointer flex justify-between items-center "
                         id="dropdown-button"
-                        onclick="toggleDropdown()">
+                        onclick="VersionMenu()">
                         <span id="selected-version">Select game version</span>
 
-                        <svg id="dropdown-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" 
-                            class="h-6 w-6 fill-amber-50 z-20">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"
+                            class="h-6 w-6 fill-amber-50 z-10">
                             <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" />
                         </svg>
                     </div>
                 
                     <!-- Dropdown List -->
                     <div id="dropdown-menu" class="absolute top-0 w-full bg-eeblack2 border border-color rounded-md hidden">
-                        <input type="text" id="searchInput" placeholder="Select game version..."
+                        <input type="text" id="versionInput" placeholder="Select game version..."
                             class="w-full px-3 py-2 bg-eeblack2 border-b border-color rounded-t-md focus:outline-none"
                             onkeyup="filterVersions()">
-                        <div id="dropdown-content" class="max-h-48 overflow-auto grid grid-cols-3 gap-2 p-2">
-                            <div class="option ver cursor-pointer" data-value="1.21.4">1.21.4</div>
-                            <div class="option ver cursor-pointer" data-value="1.21.3">1.21.3</div>
-                            <div class="option ver cursor-pointer" data-value="1.21.2">1.21.2</div>
-                            <div class="option ver cursor-pointer" data-value="1.21.1">1.21.1</div>
-                            <div class="option ver cursor-pointer" data-value="1.21">  1.21  </div>
-                            <div class="option ver cursor-pointer" data-value="1.20.6">1.20.6</div>
-                            <div class="option ver cursor-pointer" data-value="1.20.5">1.20.5</div>
-                            <div class="option ver cursor-pointer" data-value="1.20.4">1.20.4</div>
-                            <div class="option ver cursor-pointer" data-value="1.20.3">1.20.3</div>
-                            <div class="option ver cursor-pointer" data-value="1.20.2">1.20.2</div>
-                            <div class="option ver cursor-pointer" data-value="1.20.1">1.20.1</div>
+                        <div id="dropdown-content" class="max-h-48 min-h-[56px] overflow-auto grid grid-cols-3 gap-2 p-2 overflow-x-hidden">
+                            <!-- dynamic list of versions -->
+                        </div>
+
+                        <div class="flex items-center justify-around gap-4 p-2 border-t border-color">
+
+                            <div class="inline-flex items-start">
+                                <label class="flex items-start cursor-pointer relative">
+                                    <input type="checkbox" checked id="releaseVersions"
+                                        class="peer h-4 w-4 cursor-pointer transition-all appearance-none rounded shadow hover:shadow-md border border-slate-300 checked:bg-[#e78788] checked:border-white/10" />
+                                    <span class="absolute text-white opacity-0 peer-checked:opacity-100 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor"
+                                            stroke="currentColor" stroke-width="1">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z">
+                                            </path>
+                                        </svg>
+                                    </span>
+                                </label>
+
+                                <label class="cursor-pointer ml-2 text-sm translate-y-[-2.5px]">
+                                    <div>
+                                        <p class="text-sm">
+                                            Show Release Versions
+                                        </p>
+                                    </div>
+                                </label>
+                            </div>
+
+                            <div class="inline-flex items-start">
+                                <label class="flex items-start cursor-pointer relative">
+                                    <input type="checkbox" checked id="prereleaseVersions"
+                                        class="peer h-4 w-4 cursor-pointer transition-all appearance-none rounded shadow hover:shadow-md border border-slate-300 checked:bg-[#e78788] checked:border-white/10" />
+                                    <span
+                                        class="absolute text-white opacity-0 peer-checked:opacity-100 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor"
+                                            stroke="currentColor" stroke-width="1">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z">
+                                            </path>
+                                        </svg>
+                                    </span>
+                                </label>
+                            
+                                <label class="cursor-pointer ml-2 text-sm translate-y-[-2.5px]">
+                                    <div>
+                                        <p class="text-sm">
+                                            Show Pre-Release Versions
+                                        </p>
+                                    </div>
+                                </label>
+                            </div>
+                        
+                            <div class="inline-flex items-start">
+                                <label class="flex items-start cursor-pointer relative">
+                                    <input type="checkbox" checked id="snapshotVersions"
+                                        class="peer h-4 w-4 cursor-pointer transition-all appearance-none rounded shadow hover:shadow-md border border-slate-300 checked:bg-[#e78788] checked:border-white/10" />
+                                    <span class="absolute text-white opacity-0 peer-checked:opacity-100 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor"
+                                            stroke="currentColor" stroke-width="1">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z">
+                                            </path>
+                                        </svg>
+                                    </span>
+                                </label>
+
+                                <label class="cursor-pointer ml-2 text-sm translate-y-[-2.5px]">
+                                    <div>
+                                        <p class="text-sm">
+                                            Show Snapshots Versions
+                                        </p>
+                                    </div>
+                                </label>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- settings overlay -->
+        <div id="overlay" class="hidden fixed inset-0 flex items-center justify-center backdrop-blur-xs z-20">
+
+            <div class="bg-eeblack2 rounded-md shadow-md w-2/3 h-2/3 min-h-1/3 border border-color overlay-content">
+
+                <div class="flex items-center justify-between rounded-t-md border-b border-color bg-black-100/5 fixed w-[66.6%] z-30 backdrop-blur-xl pl-2 ">
+                    <h2 class="text-lg font-semibold inline-flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="h-5 w-5 fill-[#e78788]">
+                            <path d="m370-80-16-128q-13-5-24.5-12T307-235l-119 50L78-375l103-78q-1-7-1-13.5v-27q0-6.5 1-13.5L78-585l110-190 119 50q11-8 23-15t24-12l16-128h220l16 128q13 5 24.5 12t22.5 15l119-50 110 190-103 78q1 7 1 13.5v27q0 6.5-2 13.5l103 78-110 190-118-50q-11 8-23 15t-24 12L590-80H370Zm70-80h79l14-106q31-8 57.5-23.5T639-327l99 41 39-68-86-65q5-14 7-29.5t2-31.5q0-16-2-31.5t-7-29.5l86-65-39-68-99 42q-22-23-48.5-38.5T533-694l-13-106h-79l-14 106q-31 8-57.5 23.5T321-633l-99-41-39 68 86 64q-5 15-7 30t-2 32q0 16 2 31t7 30l-86 65 39 68 99-42q22 23 48.5 38.5T427-266l13 106Zm42-180q58 0 99-41t41-99q0-58-41-99t-99-41q-59 0-99.5 41T342-480q0 58 40.5 99t99.5 41Zm-2-140Z" />
+                        </svg>
+                        Settings Menu
+                    </h2>
+
+                    <button id="closeOverlay" class="px-4 py-2 rounded-tr-md primary-btn fill-amber-50 transition-colors duration-400 hover:fill-[#e78788]">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="h-5 w-5">
+                            <path
+                                d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="w-full h-[calc(100%-2.5rem)] space-y-8 overflow-y-auto px-4 ">
+                    <!-- Default Instance Settings -->
+                    <h2 class="text-center text-lg font-semibold mb-4 mt-10">DEFAULT INSTANCES SETTINGS</h2>
+                
+                    <div>
+                
+                        <h2 class="text-center text-gray-300 text-lg font-semibold mb-4 border-b border-color">WINDOW SETTINGS</h2>
+                
+                        <div class="inline-flex items-start py-2 mb-2">
+                            <label class="flex items-start cursor-pointer relative">
+                                <input type="checkbox"
+                                    class="peer h-5 w-5 cursor-pointer transition-all appearance-none rounded shadow hover:shadow-md border border-slate-300 checked:bg-eeblack3 checked:border-gray-800" />
+                                <span class="absolute text-white opacity-0 peer-checked:opacity-100 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor"
+                                        stroke="currentColor" stroke-width="1">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z">
+                                        </path>
+                                    </svg>
+                                </span>
+                            </label>
+                            <label class="cursor-pointer ml-2 text-[#e78788] text-sm translate-y-[-4px]">
+                                <div>
+                                    <p class="text-gray-300 text-lg">
+                                        Fullscreen Mode
+                                    </p>
+                                    <p class="text-[#e78788]">
+                                        This will launch your game in Fullscreen.
+                                    </p>
+                                </div>
+                            </label>
+                        </div>
+                
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="flex flex-col">
+                                <label for="width" class="text-[#e78788] mb-1">Width</label>
+                                <input id="width" type="text" value="1920"
+                                    class="bg-eeblack3 text-gray-200 text-sm px-3 py-2 rounded-md border border-color focus:outline-none focus:ring focus:ring-[#e78788]" />
+                            </div>
+                            <div class="flex flex-col">
+                                <label for="height" class="text-[#e78788] mb-1">Height</label>
+                                <input id="height" type="text" value="1080"
+                                    class="bg-eeblack3 text-gray-200 text-sm px-3 py-2 rounded-md border border-color focus:outline-none focus:ring focus:ring-[#e78788]" />
+                            </div>
+                        </div>
+                    </div>
+                
+                    <!-- Advanced Settings -->
+                    <div>
+                        <h2 class="text-center text-gray-300 text-lg font-semibold mb-4 border-b border-color">ADVANCED SETTINGS</h2>
+                        <div class="space-y-4">
+                            <div>
+                                <label for="java-arguments" class="text-[#e78788] mb-1 block">Java Arguments</label>
+                                <input id="java-arguments" type="text" placeholder="e.g. java -Xms10G -Xmx10G -XX:+UseG1GC"
+                                    class="w-full bg-eeblack3 text-gray-200 text-sm px-3 py-2 rounded-md border border-color focus:outline-none focus:ring focus:ring-[#e78788]" />
+                            </div>
+                            <div>
+                                <label for="environmental-arguments" class="text-[#e78788] mb-1 block">Environmental Arguments</label>
+                                <input id="environmental-arguments" type="text" placeholder="e.g. java $JAVA_OPTS -jar /my.jar"
+                                    class="w-full bg-eeblack3 text-gray-200 text-sm px-3 py-2 rounded-md border border-color focus:outline-none focus:ring focus:ring-[#e78788]" />
+                            </div>
+                        </div>
+                    </div>
+                
+                    <!-- Style Settings -->
+                    <div>
+                        <h2 class="text-center text-gray-300 text-lg font-semibold mb-4 border-b border-color">STYLE SETTINGS</h2>
+                        <div>
+                            <label for="select-style" class="text-[#e78788] mb-1 block">Select style</label>
+                            <select
+                                class="p-2 pe-9 w-full rounded-md text-sm bg-eeblack3 text-gray-200 border border-color focus:outline-none focus:ring focus:ring-[#e78788]">
+                                <option selected="">Blue Mode</option>
+                                <option>Purple Mode</option>
+                                <option>Red Mode</option>
+                                <option>Dark Mode</option>
+                            </select>
+                        </div>
+                    </div>
+                
+                    <!-- App Settings -->
+                    <div>
+                        <h2 class="text-center text-gray-300 text-lg font-semibold mb-4 border-b border-color">APP SETTINGS</h2>
+                
+                        <div class="inline-flex items-start">
+                            <label class="flex items-start cursor-pointer relative">
+                                <input type="checkbox" checked
+                                    class="peer h-5 w-5 cursor-pointer transition-all appearance-none rounded shadow hover:shadow-md border border-slate-300 checked:bg-eeblack3 checked:border-gray-800" />
+                                <span class="absolute text-white opacity-0 peer-checked:opacity-100 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor"
+                                        stroke="currentColor" stroke-width="1">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z">
+                                        </path>
+                                    </svg>
+                                </span>
+                            </label>
+                            <label class="cursor-pointer ml-2 text-[#e78788] text-sm translate-y-[-4px]">
+                                <div>
+                                    <p class="text-gray-300 text-lg">
+                                        Check for Updates on Startup
+                                    </p>
+                                    <p class="text-[#e78788]">
+                                        Automatically Checks for Updates on App Startup.
+                                    </p>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
 </body>
 
 <script src="../src/renderer.js"></script>
 
 </html>
-
-<!-- <body class="bg-gray-900 overflow-y-hidden">
-
-    <div class="h-screen flex-col p-4">
-
-        <div class="h-16 bg-gray-700 rounded-lg mb-4 flex items-center justify-between px-4">
-
-            <div class="flex flex-1 items-center gap-8 max-w-[30%]">
-                <button id="homeButton" class="px-4 py-2 border-2 border-gray-500 rounded-md">Home</button>
-                <button id="versionsButton" class="px-4 py-2 border-2 border-gray-500 rounded-md">Versions</button>
-                <button id="modsButton" class="px-4 py-2 border-2 border-gray-500 rounded-md">Misc</button>
-                <button id="settingsButton" class="px-4 py-2 border-2 border-gray-500 rounded-md">Settings</button>
-            </div>
-
-            <div
-                class="flex items-center gap-4 hover:bg-gray-800 transition-colors duration-400 rounded-md py-2 px-3 cursor-pointer">
-                <img src="https://mc-heads.net/avatar/fe02b95b8a084ef59558233480c6b954" alt="avatar"
-                    class="inline-block relative object-cover object-center rounded-lg w-10 h-10" />
-                <div>
-                    <h6 class="font-semibold">
-                        Embrasadas
-                    </h6>
-                    <p class="text-gray-300 text-sm">
-                        Minecraft Account
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="flex flex-1 gap-4 h-[calc(100%-5rem)]">
-
-            <div class="w-1/5 h-full bg-gray-700 rounded-lg py-4 pl-4 pr-1">
-                <h1 class="text-2xl font-bold text-white">Version List</h1>
-                <ul class="mt-4 h-[90%] pr-2 overflow-y-auto">
-                    <li class="p-2 border-b border-gray-600"><a href="#" class="text-white">1.21.1</a></li>
-                    <li class="p-2 border-b border-gray-600"><a href="#" class="text-white">1.20.4</a></li>
-                    <li class="p-2 border-b border-gray-600"><a href="#" class="text-white">1.12.2</a></li>
-                    <li class="p-2 border-b border-gray-600"><a href="#" class="text-white">1.8.9</a></li>
-                    <li class="p-2 border-b border-gray-600"><a href="#" class="text-white">1.7.10</a></li>
-                </ul>
-            </div>
-
-            <div id="mainContent" class="flex-1 bg-gray-700 rounded-lg p-4 flex flex-col items-center gap-4">
-                <h1 class="text-2xl font-bold text-white">Welcome to the Minecraft Launcher</h1>
-                <div class="flex flex-col items-center gap-2">
-                    <button type="button" id="launch-button"
-                        class="w-80 px-4 py-2 bg-gray-800 border-2 border-gray-500 rounded-md">Play</button>
-                    <h1 class="font-semibold text-gray-300">Selected Version 1.21.1 With Account Embrassadas</h1>
-                </div>
-
-                <div class="flex flex-col items-center gap-4">
-                    <select id="version-select"
-                        class="p-2 pe-9 w-full rounded-md text-sm bg-gray-800 text-gray-200 border-2 border-gray-500 focus:outline-none focus:ring focus:ring-gray-600">
-                        <option value="1.21.1">Minecraft 1.21.1</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-    </div>
-</body> -->
