@@ -1,11 +1,17 @@
 const { app, BrowserWindow, ipcMain } = require("electron");
 const { Client } = require("minecraft-launcher-core");
 const { Auth } = require("msmc");
-const path = require("path"); 
-const fs = require("fs"); 
+const minecraftData = require("minecraft-data");
+const path = require("path");
+const fs = require("fs");
 const os = require("os");
 
 let mainWindow;
+
+/** @type {Array} */
+let accounts;
+/** @type {number} */
+let fd;
 
 function createWindow() {
   mainWindow = new BrowserWindow({
@@ -48,9 +54,20 @@ async function launchMinecraft(version) {
   try {
     const xboxManager = await authManager.launch("raw");
     const token = await xboxManager.getMinecraft();
-    const minecraftDir = path.join(os.homedir(), 'AppData', 'Roaming', '.minecraft');
+    const minecraftDir = path.join(
+      os.homedir(),
+      "AppData",
+      "Roaming",
+      ".minecraft"
+    );
 
-   
+    // console.log(`skin url`, token.profile.skins.url);
+
+    addAccount({
+      nickname: token.profile.name,
+      token: token.mclc(),
+    });
+
     const opts = {
       clientPackage: null,
       authorization: token.mclc(),
@@ -63,7 +80,8 @@ async function launchMinecraft(version) {
         max: "6G",
         min: "4G",
       },
-      javaPath: "C:/Users/Admin/AppData/Roaming/ModrinthApp/meta/java_versions/zulu21.36.17-ca-jre21.0.4-win_x64/bin/javaw.exe",
+      javaPath:
+        "C:/Users/Admin/AppData/Roaming/ModrinthApp/meta/java_versions/zulu21.36.17-ca-jre21.0.4-win_x64/bin/javaw.exe",
     };
 
     console.log(`Starting Minecraft ${version}...`);
@@ -80,13 +98,59 @@ async function launchMinecraft(version) {
   }
 }
 
+function addAccount(account) {
+  accounts.push(account);
+  fs.writeFileSync(fd, JSON.stringify(accounts));
+}
+
+function removeAccount(index) {
+  accounts = accounts.filter((_, i) => i !== index);
+  fs.writeFileSync(fd, JSON.stringify(accounts));
+}
+
+// Fetch Minecraft versions
+function getMinecraftVersions() {
+  const versions = minecraftData.versions.pc; // Access the versions property
+  return versions.map((version) => ({
+    id: version.minecraftVersion,
+    type: version.releaseType,
+  }));
+}
+
 // Handle the "launch-minecraft" event from the renderer process
 ipcMain.on("launch-minecraft", (event, version) => {
   launchMinecraft(version); // Pass the selected version
 });
 
+// Send versions to the renderer process
+ipcMain.handle("get-minecraft-versions", () => {
+  return getMinecraftVersions();
+});
+
 // Start the app
-app.whenReady().then(() => {
+app.whenReady().then(async () => {
+  // preinit hook
+
+  const slashLauncherJson = new URL(
+    "file://" +
+      path.join(
+        os.homedir(),
+        "AppData",
+        "Roaming",
+        ".minecraft",
+        ".slash-launcher"
+      )
+  );
+
+  if (!fs.existsSync(slashLauncherJson))
+    fs.writeFileSync(slashLauncherJson, "[]", {
+      flag: "w",
+    });
+
+  fd = fs.openSync(slashLauncherJson);
+
+  accounts = JSON.parse(fs.readFileSync(fd));
+
   createWindow();
 
   app.on("activate", () => {
